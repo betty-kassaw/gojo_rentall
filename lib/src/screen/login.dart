@@ -1,16 +1,16 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:gojo_rental/src/screen/login.dart';
+import 'package:gojo_rental/src/screen/signup.dart';
 
-class signup extends StatefulWidget {
-  const signup({Key? key}) : super(key: key);
+class login extends StatefulWidget {
+  const login({Key? key}) : super(key: key);
 
   @override
-  State<signup> createState() => _signupState();
+  State<login> createState() => _loginState();
 }
 
-class _signupState extends State<signup> {
+class _loginState extends State<login> {
   bool _passwordVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -30,25 +30,6 @@ class _signupState extends State<signup> {
           ),
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(30, 0, 20, 20),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please Enter First Name';
-                    }
-                    return null;
-                  },
-                  keyboardType: TextInputType.text,
-                  // controller: registerController.firstnameTextcontroller,
-                  // obscureText: !_passwordVisible, //This will obscure text dynamically
-                  decoration: InputDecoration(
-                    labelText: 'Full Name',
-                    hintText: 'Enter your Full Name',
-                    // Here is key idea
-                  ),
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 20, 20),
                 child: TextFormField(
@@ -107,45 +88,16 @@ class _signupState extends State<signup> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(30, 0, 20, 0),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please Enter Password';
-                    }
-                    // if(registerController.passwordTextcontroller!=controllercPassword.text){
-                    //   return "Password does not match";
-                    // }
-                    return null;
-                  },
-                  keyboardType: TextInputType.text,
-                  // controller: registerController.passwordTextcontroller,
-                  obscureText:
-                      !_passwordVisible, //This will obscure text dynamically
-                  decoration: InputDecoration(
-                    labelText: 'confirm Password',
-                    hintText: 'Enter your password',
-                    // Here is key idea
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        // Based on passwordVisible state choose the icon
-                        _passwordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                        color: Theme.of(context).primaryColorDark,
-                      ),
-                      onPressed: () {
-                        // Update the state i.e. toogle the state of passwordVisible variable
-                        setState(() {
-                          _passwordVisible = !_passwordVisible;
-                        });
-                      },
+                padding: const EdgeInsets.fromLTRB(230, 0, 0, 0),
+                child: TextButton(
+                    child: Text(
+                      "Forgot Password?",
+                      style: TextStyle(fontSize: 15, color: Colors.black45),
                     ),
-                  ),
-                ),
+                    onPressed: () {}),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(8, 25, 8, 8),
+                padding: const EdgeInsets.fromLTRB(8, 20, 8, 8),
                 child: Container(
                   width: MediaQuery.of(context).size.width * .7,
                   height: MediaQuery.of(context).size.height * .06,
@@ -154,7 +106,7 @@ class _signupState extends State<signup> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromARGB(255, 220, 126, 50)),
-                    child: Text('SIGN UP',
+                    child: Text('LOGIN',
                         style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 250, 250, 250))),
@@ -166,13 +118,13 @@ class _signupState extends State<signup> {
               ),
               TextButton(
                   child: Text(
-                    "Already have Account? LOG IN",
+                    "Don't have an Account? SIGN UP",
                     style: TextStyle(fontSize: 15, color: Colors.black45),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const login()),
+                      MaterialPageRoute(builder: (context) => const signup()),
                     );
                   }),
             ],

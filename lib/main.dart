@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gojo_rental/src/screen/homepageday1.dart';
 import 'package:gojo_rental/src/screen/signup.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: signup(),
+      home: homepage(),
     );
   }
 }

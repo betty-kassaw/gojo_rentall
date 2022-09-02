@@ -1,6 +1,7 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:gojo_rental/src/screen/homepageday1.dart';
 import 'package:gojo_rental/src/screen/signup.dart';
 
 class login extends StatefulWidget {
@@ -112,6 +113,11 @@ class _loginState extends State<login> {
                             color: Color.fromARGB(255, 250, 250, 250))),
                     onPressed: () {
                       //  registerController.registersupplier();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const homepage()),
+                      );
                     },
                   ),
                 ),
